@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/RPG and MMO UI 6/Scenes/Character Select (3D).unity
-    guid: 895ea9ec15f0be047b37d539cec4d607
+    path: Assets/Start.unity
+    guid: 5be7f7e569fc7f74f96dd507f3752eca
   - enabled: 1
-    path: Assets/Map/Demo/Scene1.unity
-    guid: 7d6cd08d082f1b04da3d96aebd0e0d99
+    path: Assets/Scene1.unity
+    guid: 91736829bb445ca44ba2443bf0db21ea

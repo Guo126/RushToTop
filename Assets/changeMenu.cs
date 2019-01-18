@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class changeMenu : MonoBehaviour {
 
@@ -9,6 +10,7 @@ public class changeMenu : MonoBehaviour {
     private int index = 0;
     public GameObject menu;
     public GameObject start, world, overlay, hero;
+    public VideoPlayer videoPlayer;
 
 
 	// Use this for initialization
@@ -27,10 +29,10 @@ public class changeMenu : MonoBehaviour {
     {
         if (index == 0)
         {
-            start.SetActive(false);
-            world.SetActive(true);
-            overlay.SetActive(true);
-            hero.SetActive(true);
+            Camera.main.GetComponent<VideoPlayer>().Play();
+            Invoke("wait", 1.5f);
+            Invoke("wait2", 92f);
+           
         }
     }
 	
@@ -61,4 +63,15 @@ public class changeMenu : MonoBehaviour {
         menu.GetComponent<Image>().overrideSprite = menus[index];
     }
 
+    void wait()
+    {
+        start.SetActive(false);
+    }
+
+    void wait2()
+    {
+        world.SetActive(true);
+        overlay.SetActive(true);
+        hero.SetActive(true);
+    }
 }
