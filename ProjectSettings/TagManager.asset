@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - hero
+  - medition
   layers:
   - Default
   - TransparentFX
