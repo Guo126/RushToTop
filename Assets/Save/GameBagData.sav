@@ -1,0 +1,18 @@
+﻿[
+  [
+    {
+      "number": 57,
+      "name": "blueMedition",
+      "explain": "恢复蓝量",
+      "type": "Medition"
+    },
+    {
+      "number": 10,
+      "name": "redMedition",
+      "explain": "恢复血量",
+      "type": "Medition"
+    }
+  ],
+  [],
+  []
+]

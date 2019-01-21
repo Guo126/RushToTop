@@ -37,7 +37,7 @@ public class ItemUseAndDestory : MonoBehaviour {
 	//使用物品或者销毁物品
 	public void Use()
 	{
-		if(m_ItemDescribe.transform.GetChild(1).childCount!=0&&gameObject.GetComponent<Toggle>().isOn)
+		if(m_ItemDescribe.transform.GetChild(1).childCount!=0&&gameObject.GetComponent<Toggle>().isOn&&gameObject.transform.childCount>2)
 		{
 			if(1<=int.Parse(m_ItemDescribe.transform.GetChild(4).GetComponent<Text>().text))
 			{
@@ -53,7 +53,7 @@ public class ItemUseAndDestory : MonoBehaviour {
 	
 	public void Destory()
 	{
-		if(m_ItemDescribe.transform.GetChild(1).childCount!=0&&gameObject.GetComponent<Toggle>().isOn)
+		if(m_ItemDescribe.transform.GetChild(1).childCount!=0&&gameObject.GetComponent<Toggle>().isOn&&gameObject.transform.childCount>2)
 		{
 			if(1<=int.Parse(m_ItemDescribe.transform.GetChild(4).GetComponent<Text>().text))
 			{
@@ -69,12 +69,15 @@ public class ItemUseAndDestory : MonoBehaviour {
     public void LoadItemMessage(string gName)
     {
         Item itemTemp=ItemsRefresh.Instance.FindItem(gName);
-		GameObject prefabTemp=(GameObject)Instantiate(Resources.Load("Prefabs/"+itemTemp.name));
-		prefabTemp.transform.position=m_ItemDescribe.transform.GetChild(1).position;
-		prefabTemp.transform.SetParent(m_ItemDescribe.transform.GetChild(1));
-        m_ItemDescribe.transform.GetChild(2).GetComponent<Text>().text=itemTemp.name;
-		m_ItemDescribe.transform.GetChild(4).GetComponent<Text>().text=itemTemp.number.ToString();
-		m_ItemDescribe.transform.GetChild(5).GetComponent<Text>().text=itemTemp.explain;
+		if(itemTemp.number>0)
+		{
+			GameObject prefabTemp=(GameObject)Instantiate(Resources.Load("Prefabs/"+itemTemp.name));
+			prefabTemp.transform.position=m_ItemDescribe.transform.GetChild(1).position;
+			prefabTemp.transform.SetParent(m_ItemDescribe.transform.GetChild(1));
+        	m_ItemDescribe.transform.GetChild(2).GetComponent<Text>().text=itemTemp.name;
+			m_ItemDescribe.transform.GetChild(4).GetComponent<Text>().text=itemTemp.number.ToString();
+			m_ItemDescribe.transform.GetChild(5).GetComponent<Text>().text=itemTemp.explain;
+		}
     }
 
 

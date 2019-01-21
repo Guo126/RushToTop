@@ -9,7 +9,7 @@ public class ItemsRefresh : MonoBehaviour {
     [SerializeField]private GameObject items3;
     public List<List<Item>> bagList;
     
-    public string filename;
+    private string filename;
     public static ItemsRefresh instance;
     public static ItemsRefresh Instance
     {
@@ -19,16 +19,12 @@ public class ItemsRefresh : MonoBehaviour {
         }
 
     }
-
-
     void Awake()
     {
-        filename =Application.persistentDataPath+"/Save/GameBagData.sav";
-        IOHelper.CreateDirectory(Application.persistentDataPath+"Save");
-        IOHelper.CreateFile(filename);
+        filename ="Assets/Save/GameBagData.sav";
+        Debug.Log(filename);
         bagList=new List<List<Item>>();
         bagList=(List<List<Item>>)IOHelper.GetData(filename,typeof(List<List<Item>>));
-
         instance = this;
     }
 
@@ -64,10 +60,10 @@ public class ItemsRefresh : MonoBehaviour {
     public void LoadItems()
     {
         GameObject temp;
-        
+        NoItemSelect();
         for(int i=0;i<bagList.Count;i++)
         {
-            for(int j=0;j<bagList[i].Count;j++)
+            for(int j=bagList[i].Count-1;j>=0;j--)
             {
                 if(null!=bagList[i][j])
                 {
@@ -82,7 +78,6 @@ public class ItemsRefresh : MonoBehaviour {
                             temp.transform.SetParent(items1.transform.GetChild(j));
                             items1.transform.GetChild(j).GetChild(1).GetComponent<Text>().text=bagList[i][j].number.ToString();
                         }
-
                     }
                     if(1==i)
                     { 
@@ -91,7 +86,7 @@ public class ItemsRefresh : MonoBehaviour {
                             temp.transform.position=items2.transform.GetChild(j).position;
                             temp.transform.SetParent(items2.transform.GetChild(j));
                             items2.transform.GetChild(j).GetChild(1).GetComponent<Text>().text=bagList[i][j].number.ToString();
-                        }
+                        }  
                     }
                     if(2==i)
                     {
@@ -103,6 +98,7 @@ public class ItemsRefresh : MonoBehaviour {
                         }
                     }
                 }
+            
             }
         }
     }
@@ -111,17 +107,15 @@ public class ItemsRefresh : MonoBehaviour {
     {
         IOHelper.SetData(filename,bagList);
     }
-    public void NoItemToDelete(string n)
+    public void NoItemSelect()
     {
         for(int i=0;i<bagList.Count;i++)
         {
-            for(int j=bagList[i].Count;j>=0;j--)
+            for(int j=bagList[i].Count-1;j>=0;j--)
             {
-                if(bagList[i][j].name==n)
+                if(bagList[i][j].number<=0)
                 {
-                    Debug.Log("ok");
                     bagList[i].RemoveAt(j);
-                    break;
                 }
             }
         }
