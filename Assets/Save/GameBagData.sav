@@ -1,13 +1,13 @@
-﻿[
+[
   [
     {
-      "number": 57,
+      "number": 9,
       "name": "blueMedition",
       "explain": "恢复蓝量",
       "type": "Medition"
     },
     {
-      "number": 10,
+      "number": 7,
       "name": "redMedition",
       "explain": "恢复血量",
       "type": "Medition"

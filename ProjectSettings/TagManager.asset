@@ -6,6 +6,7 @@ TagManager:
   tags:
   - hero
   - medition
+  - menu
   layers:
   - Default
   - TransparentFX
