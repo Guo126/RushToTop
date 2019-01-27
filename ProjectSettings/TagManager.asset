@@ -6,6 +6,17 @@ TagManager:
   tags:
   - hero
   - medition
+  - menu
+  - helmet
+  - bracer
+  - necklace
+  - bracelet
+  - handguard
+  - weapon
+  - breastplate
+  - boot
+  - otherItem
+  - equipment
   layers:
   - Default
   - TransparentFX
