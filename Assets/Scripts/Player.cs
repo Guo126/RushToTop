@@ -15,7 +15,8 @@ public class Player : MonoBehaviour {
 
     private Vector3 direction = Vector3.zero;
     private Vector3 target;
-    
+
+    public float speed = 3f;
     public GameObject perfab;
     private CharacterController characterController;
 
@@ -39,7 +40,8 @@ public class Player : MonoBehaviour {
             RaycastHit info;
             Physics.Raycast(ray, out info, 1000f, lm.value);
             Debug.Log(info.collider.name);
-            GameObject.Instantiate(perfab, info.point, Quaternion.identity);
+            if (perfab != null)
+                GameObject.Instantiate(perfab, info.point, Quaternion.identity);
 
             target = info.point;
 
@@ -59,7 +61,7 @@ public class Player : MonoBehaviour {
 
         target.y = this.transform.position.y;
         this.transform.LookAt(target);
-        characterController.SimpleMove(direction);
+        characterController.SimpleMove(direction.normalized * speed);
         anim.SetFloat(speedID, Mathf.Clamp01(Mathf.Abs(direction.x)));
         //anim.SetFloat(speedRotateID, direction.z * 126);
 

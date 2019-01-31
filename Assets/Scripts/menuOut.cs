@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class menuOut : MonoBehaviour {
@@ -9,20 +10,29 @@ public class menuOut : MonoBehaviour {
     public Sprite go ;
     public Sprite back ;
 
+  
 
-    public void menuControl()
+
+    public void menuGo()
     {
-        isOut = !isOut;
-        
-        if (isOut)
+        if (!isOut)
         {
             transform.parent.Translate(new Vector3(0, -50, 0));
-            gameObject.GetComponent<Image>().overrideSprite = back;
+            gameObject.GetComponent<Image>().overrideSprite = go;
         }
-        else
+        
+        isOut = true;
+
+       
+    }
+      public void menuBack()
+    {
+        if (isOut)
         {
             transform.parent.Translate(new Vector3(0, 50, 0));
             gameObject.GetComponent<Image>().overrideSprite = go;
         }
+
+        isOut = false;
     }
 }
