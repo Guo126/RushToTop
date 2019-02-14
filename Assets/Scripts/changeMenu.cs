@@ -10,11 +10,11 @@ public class changeMenu : MonoBehaviour {
     private int index = 0;
     public GameObject menu;
     public GameObject start, world, overlay, hero;
-    public VideoPlayer videoPlayer;
+    public VideoClip story1;
 
-
-	// Use this for initialization
-	void Start () {
+   
+    // Use this for initialization
+    void Start () {
         //if 第一次进入游戏
         menu.GetComponent<Image>().overrideSprite = menus[0];
         index = 0;
@@ -29,6 +29,7 @@ public class changeMenu : MonoBehaviour {
     {
         if (index == 0)
         {
+            Camera.main.GetComponent<VideoPlayer>().clip = story1;
             Camera.main.GetComponent<VideoPlayer>().Play();
             Invoke("wait", 1.5f);
             Invoke("wait2", 92f);
