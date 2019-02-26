@@ -39,7 +39,7 @@ public class Player : MonoBehaviour {
             Debug.DrawRay(ray.origin, ray.direction, Color.blue);
             RaycastHit info;
             Physics.Raycast(ray, out info, 1000f, lm.value);
-            Debug.Log(info.collider.name);
+           // Debug.Log(info.collider.name);
             if (perfab != null)
                 GameObject.Instantiate(perfab, info.point, Quaternion.identity);
 

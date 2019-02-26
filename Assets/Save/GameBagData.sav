@@ -7,7 +7,7 @@
       "type": "Medition"
     },
     {
-      "number": 9,
+      "number": 8,
       "name": "redMedition",
       "explain": "恢复10%血量",
       "type": "Medition"
