@@ -14,7 +14,7 @@ public class Player : MonoBehaviour {
     private int speedRotateID = Animator.StringToHash("SpeedRotate");
 
     private Vector3 direction = Vector3.zero;
-    private Vector3 target;
+    public Vector3 target;
 
     public float speed = 3f;
     public GameObject perfab;

@@ -15,8 +15,8 @@ public class LookAtPlayer : MonoBehaviour {
 	}
 
     void LateUpdate() {
-        targetPosition = playerTransform.position + playerTransform.TransformDirection(offset);//
+        targetPosition = playerTransform.position + playerTransform.TransformDirection(offset);
         gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, targetPosition, Time.deltaTime * smooth);
-        gameObject.transform.LookAt(playerTransform);
+       // gameObject.transform.LookAt(playerTransform);
     }
 }

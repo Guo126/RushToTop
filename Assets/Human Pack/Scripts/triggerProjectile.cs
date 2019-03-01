@@ -20,8 +20,14 @@ public class triggerProjectile : MonoBehaviour {
 		StartCoroutine(lerpyLoop(magicMissile));
 	}
 
-	// shoot loop
-	public IEnumerator lerpyLoop(GameObject projectileInstance)
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere( this.transform.position , attackRange);
+    }
+
+    // shoot loop
+    public IEnumerator lerpyLoop(GameObject projectileInstance)
 	{
 		var victim = transform.position + transform.forward * attackRange;
 

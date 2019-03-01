@@ -17,6 +17,7 @@ TagManager:
   - boot
   - otherItem
   - equipment
+  - enemy
   layers:
   - Default
   - TransparentFX
