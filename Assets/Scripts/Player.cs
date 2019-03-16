@@ -39,7 +39,7 @@ public class Player : MonoBehaviour {
             Debug.DrawRay(ray.origin, ray.direction, Color.blue);
             RaycastHit info;
             Physics.Raycast(ray, out info, 1000f, lm.value);
-           // Debug.Log(info.collider.name);
+           
             if (perfab != null)
                 GameObject.Instantiate(perfab, info.point, Quaternion.identity);
 
@@ -62,7 +62,7 @@ public class Player : MonoBehaviour {
         target.y = this.transform.position.y;
         this.transform.LookAt(target);
         characterController.SimpleMove(direction.normalized * speed);
-        anim.SetFloat(speedID, Mathf.Clamp01(Mathf.Abs(direction.x)));
+        anim.SetFloat(speedID, Mathf.Clamp01(Mathf.Abs(direction.sqrMagnitude)));
         //anim.SetFloat(speedRotateID, direction.z * 126);
 
         //anim.SetFloat(speedID, Input.GetAxis("Vertical"));

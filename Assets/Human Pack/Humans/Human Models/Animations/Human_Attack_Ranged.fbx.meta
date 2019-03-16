@@ -163,12 +163,9 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Errors found in
-      old project file will be treated as a warnings. Configuration mis-match will
-      be ignored, but current Configuration needs to be fixed:\n\tTransform 'Human_master'
-      not found in HumanDescription.\nCopied Avatar Rig Configuration mis-match. Inbetween
-      bone rotation in copied configuration does not match rotation in animation file:\n\t'Base
-      HumanSpine3' : rotation error = 5.027932 deg\n"
+    rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
+      in configuration does not match rotation in animation file:\n\t'Base HumanRibcage'
+      : rotation error = 5.027950 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
       might lower retargeting quality:\nNote: Activate translation DOF on avatar to
@@ -208,7 +205,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.2689655
+        functionName: ShootTo
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1

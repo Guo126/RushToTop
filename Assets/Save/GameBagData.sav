@@ -15,13 +15,13 @@
   ],
   [
     {
-      "number": 5,
+      "number": 3,
       "name": "yellowHelmet",
       "explain": "增加15防御",
       "type": "Equipment"
     },
     {
-      "number": 5,
+      "number": 1,
       "name": "ironHelmet",
       "explain": "增加20防御",
       "type": "Equipment"
