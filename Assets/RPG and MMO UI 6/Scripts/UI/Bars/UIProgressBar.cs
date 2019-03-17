@@ -190,7 +190,9 @@ namespace DuloGames.UI
 		/// </summary>
 		public void UpdateBarFill()
 		{
-			if (!this.isActiveAndEnabled)
+            
+
+            if (!this.isActiveAndEnabled)
 				return;
 
             if (this.m_Type == Type.Filled && this.m_TargetImage == null)

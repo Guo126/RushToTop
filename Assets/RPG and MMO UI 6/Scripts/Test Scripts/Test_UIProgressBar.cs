@@ -19,15 +19,29 @@ namespace DuloGames.UI
 		public TweenEasing Easing = TweenEasing.InOutQuint;
 		public Text m_Text;
 		public TextVariant m_TextVariant = TextVariant.Percent;
-		public int m_TextValue = 100;
+		public int m_TextValue = 1 ;
         public string m_TextValueFormat = "0";
 
 		// Tween controls
 		[NonSerialized] private readonly TweenRunner<FloatTween> m_FloatTweenRunner;
-		
-		// Called by Unity prior to deserialization, 
-		// should not be called by users
-		protected Test_UIProgressBar()
+
+        public void SetTextValue(int value)
+        {
+            m_TextValue = value;
+        }
+
+        private void Start()
+        {
+            //m_TextValue = PlayerMes.getInstance().BloodMax;
+            //SetFillAmount(1);
+        }
+        private void Update()
+        {
+            //SetFillAmount(PlayerMes.getInstance().BloodNum);
+        }
+        // Called by Unity prior to deserialization, 
+        // should not be called by users
+        protected Test_UIProgressBar()
 		{
 			if (this.m_FloatTweenRunner == null)
 				this.m_FloatTweenRunner = new TweenRunner<FloatTween>();
@@ -43,11 +57,12 @@ namespace DuloGames.UI
 			this.StartTween(0f, (this.bar.fillAmount * this.Duration));
 		}
 		
-		protected void SetFillAmount(float amount)
+		public void SetFillAmount(float amount)
 		{
 			if (this.bar == null)
 				return;
-			
+
+            print(amount);
 			this.bar.fillAmount = amount;
 			
 			if (this.m_Text != null)
@@ -81,8 +96,8 @@ namespace DuloGames.UI
 				return;
 			
 			var floatTween = new FloatTween { duration = duration, startFloat = this.bar.fillAmount, targetFloat = targetFloat };
-			floatTween.AddOnChangedCallback(SetFillAmount);
-			floatTween.AddOnFinishCallback(OnTweenFinished);
+			//floatTween.AddOnChangedCallback(SetFillAmount);
+			//floatTween.AddOnFinishCallback(OnTweenFinished);
 			floatTween.ignoreTimeScale = true;
 			floatTween.easing = this.Easing;
 			this.m_FloatTweenRunner.StartTween(floatTween);

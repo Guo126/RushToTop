@@ -66,7 +66,7 @@ public class ItemsRefresh : MonoBehaviour {
             {
                 if(null!=bagList[i][j])
                 {
-                    temp = (GameObject)Instantiate(Resources.Load("Prefabs/"+bagList[i][j].name));
+                    temp = (GameObject)Instantiate(Resources.Load("Prefabs/equip/"+bagList[i][j].name));
                     //Debug.Log(temp.name);
                     temp.name=bagList[i][j].name;
                     if(0==i)

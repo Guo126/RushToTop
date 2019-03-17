@@ -24,7 +24,7 @@ public class LookAtPlayer : MonoBehaviour {
     private void Scale()
     {
         float dis = offset.magnitude;
-        dis += Input.GetAxis("Mouse ScrollWheel") * 5;
+        dis += Input.GetAxis("Mouse ScrollWheel") * -5;
        
         if (dis < 1.5f || dis > 5)
         {

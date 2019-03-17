@@ -100,6 +100,7 @@ public class control : MonoBehaviour {
         start.SetActive(false);
         heroObject.SetActive(false);
         loading.SetActive(true);
+        PlayerPrefs.SetInt("hero_index", hero_index);
         StartCoroutine("change");
     }
 

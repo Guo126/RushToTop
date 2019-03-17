@@ -5,13 +5,15 @@ using UnityEngine.Video;
 
 public class gameBegin : MonoBehaviour {
 
-
     public GameObject start;
+    private int isFirst = 0;
 	// Use this for initialization
 	void Start () {
         
-          Camera.main.GetComponent<VideoPlayer>().Play();
-        Invoke("wait", 5f);
+            Camera.main.GetComponent<VideoPlayer>().Play();
+            
+            Invoke("wait", 5f);
+       
     }
 
     // Update is called once per frame

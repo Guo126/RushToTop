@@ -917,9 +917,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 3
-  damage: 20
+  damage: 114
   arrowPrefab: {fileID: 194614, guid: 975080680c2dd2349826cd2a445aff6c, type: 2}
   shootPoint: {fileID: 4433663024158840}
+  shootSpeed: 10
 --- !u!114 &114708437306508492
 MonoBehaviour:
   m_ObjectHideFlags: 1

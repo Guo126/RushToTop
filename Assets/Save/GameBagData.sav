@@ -7,7 +7,7 @@
       "type": "Medition"
     },
     {
-      "number": 8,
+      "number": 7,
       "name": "redMedition",
       "explain": "恢复10%血量",
       "type": "Medition"
@@ -15,21 +15,21 @@
   ],
   [
     {
-      "number": 3,
-      "name": "yellowHelmet",
-      "explain": "增加15防御",
+      "number": 1,
+      "name": "sword01",
+      "explain": "增加10攻击力",
       "type": "Equipment"
     },
     {
       "number": 1,
-      "name": "ironHelmet",
-      "explain": "增加20防御",
+      "name": "sword04",
+      "explain": "增加200攻击力",
       "type": "Equipment"
     },
     {
-      "number": 9,
-      "name": "redNecklace",
-      "explain": "增加15防御",
+      "number": 4,
+      "name": "dun02",
+      "explain": "增加100防御力",
       "type": "Equipment"
     }
   ],

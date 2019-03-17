@@ -35,7 +35,7 @@ public class ItemUseAndDestory : MonoBehaviour, IBeginDragHandler, IDragHandler,
     // Use this for initialization
     void Start()
     {
-        trans = GameObject.Find("Canvas").transform;
+        trans = GameObject.Find("Main_Canvas").transform;
         useButton.onClick.AddListener(
             delegate ()
             {
@@ -172,81 +172,81 @@ public class ItemUseAndDestory : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        //if (gameObject.transform.parent.tag == "equipment")//是装备才可拖动
-        //{
-        //    if (eventData.pointerEnter.transform.name != "slot_down")//如果是slot的话就不处理
-        //    {
-        //        //给pic初始化
-        //        itemPic.image = eventData.pointerEnter;//将被拖拽的物体付给itemPic.image使之被记录
-        //        itemPic.image.transform.SetParent(trans);
-        //        itemPic.offset = itemPic.image.transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //        itemPic.nowParent = trans;
+        if (gameObject.transform.parent.tag == "equipment")//是装备才可拖动
+        {
+            if (eventData.pointerEnter.transform.name != "slot_down")//如果是slot的话就不处理
+            {
+                //给pic初始化
+                itemPic.image = eventData.pointerEnter;//将被拖拽的物体付给itemPic.image使之被记录
+                itemPic.image.transform.SetParent(trans);
+                itemPic.offset = itemPic.image.transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                itemPic.nowParent = trans;
 
-        //        GameObject image = (GameObject)Instantiate(Resources.Load("Prefabs/" + eventData.pointerEnter.transform.name));//找到该预制体
-        //        image.name = eventData.pointerEnter.transform.name;
-        //        image.transform.position = gameObject.transform.position;
-        //        image.transform.SetParent(gameObject.transform);
+                GameObject image = (GameObject)Instantiate(Resources.Load("Prefabs/equip/" + eventData.pointerEnter.transform.name));//找到该预制体
+                image.name = eventData.pointerEnter.transform.name;
+                image.transform.position = gameObject.transform.position;
+                image.transform.SetParent(gameObject.transform);
 
-        //        IsRaycastLocationValid(false);//射线可穿透点击物体
-        //    }
-        //}
+                IsRaycastLocationValid(false);//射线可穿透点击物体
+            }
+        }
     }
     public void OnDrag(PointerEventData eventData)
     {
-    //    Vector3 pos;
-    //    if (RectTransformUtility.ScreenPointToWorldPointInRectangle(trans as RectTransform, Input.mousePosition, null, out pos))
-    //    {
-    //        itemPic.image.transform.position = pos + new Vector3(-30, -30, 0);
-    //    }
+        Vector3 pos;
+        if (RectTransformUtility.ScreenPointToWorldPointInRectangle(trans as RectTransform, Input.mousePosition, null, out pos))
+        {
+            itemPic.image.transform.position = pos + new Vector3(-30, -30, 0);
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        //GameObject go = eventData.pointerCurrentRaycast.gameObject;//记录射线获取到的物体
-        //if (go != null && go.transform.parent != null)
-        //{
-        //    //没放进去（不是指定区域），Destory
-        //    if (itemPic.image.tag != go.transform.parent.name)
-        //    {
-        //        Destroy(itemPic.image);
-        //    }//放在指定区域且为空槽，直接放入，装备数字减一，实际装备数不变
-        //    else if (itemPic.image.tag == go.transform.parent.name && go.transform.parent.childCount == 2)
-        //    {
-        //        itemPic.image.transform.position = go.transform.parent.position;
-        //        itemPic.image.transform.SetParent(go.transform.parent);
-        //        gameObject.transform.GetChild(1).GetComponent<Text>().text = (int.Parse(gameObject.transform.GetChild(1).GetComponent<Text>().text) - 1).ToString();
-        //    }//放在指定区域不是空槽，占位
-        //    else if (itemPic.image.tag == go.transform.parent.name && go.transform.childCount != 2)
-        //    {
-        //        //装备一样，Destory
-        //        if (itemPic.image.name == go.transform.parent.GetChild(2).name)
-        //        {
-        //            Destroy(itemPic.image);
-        //        }
-        //        else
-        //        {
-        //            //不一样,取下加一，换新减一，
-        //            Transform temp = go.transform;
+        GameObject go = eventData.pointerCurrentRaycast.gameObject;//记录射线获取到的物体
+        if (go != null && go.transform.parent != null)
+        {
+            //没放进去（不是指定区域），Destory
+            if (itemPic.image.tag != go.transform.parent.name)
+            {
+                Destroy(itemPic.image);
+            }//放在指定区域且为空槽，直接放入，装备数字减一，实际装备数不变
+            else if (itemPic.image.tag == go.transform.parent.name && go.transform.parent.childCount == 2)
+            {
+                itemPic.image.transform.position = go.transform.parent.position;
+                itemPic.image.transform.SetParent(go.transform.parent);
+                gameObject.transform.GetChild(1).GetComponent<Text>().text = (int.Parse(gameObject.transform.GetChild(1).GetComponent<Text>().text) - 1).ToString();
+            }//放在指定区域不是空槽，占位
+            else if (itemPic.image.tag == go.transform.parent.name && go.transform.childCount != 2)
+            {
+                //装备一样，Destory
+                if (itemPic.image.name == go.transform.parent.GetChild(2).name)
+                {
+                    Destroy(itemPic.image);
+                }
+                else
+                {
+                    //不一样,取下加一，换新减一，
+                    Transform temp = go.transform;
 
-        //            for (int i = 0; i < gameObject.transform.parent.childCount; i++)
-        //            {
-        //                if (gameObject.transform.parent.GetChild(i).childCount > 2 && gameObject.transform.parent.GetChild(i).GetChild(2).name == temp.name)
-        //                {
-        //                    gameObject.transform.parent.GetChild(i).GetChild(1).GetComponent<Text>().text = (int.Parse(gameObject.transform.parent.GetChild(i).GetChild(1).GetComponent<Text>().text) + 1).ToString();
-        //                }
-        //            }
-        //            itemPic.image.transform.position = go.transform.parent.position;
-        //            itemPic.image.transform.SetParent(go.transform.parent);
-        //            gameObject.transform.GetChild(1).GetComponent<Text>().text = (int.Parse(gameObject.transform.GetChild(1).GetComponent<Text>().text) - 1).ToString();
-        //            Destroy(go);
-        //        }
-        //    }
-        //    IsRaycastLocationValid(true);
-        //}
-        //else
-        //{
-        //    Destroy(itemPic.image);
-        //}
+                    for (int i = 0; i < gameObject.transform.parent.childCount; i++)
+                    {
+                        if (gameObject.transform.parent.GetChild(i).childCount > 2 && gameObject.transform.parent.GetChild(i).GetChild(2).name == temp.name)
+                        {
+                            gameObject.transform.parent.GetChild(i).GetChild(1).GetComponent<Text>().text = (int.Parse(gameObject.transform.parent.GetChild(i).GetChild(1).GetComponent<Text>().text) + 1).ToString();
+                        }
+                    }
+                    itemPic.image.transform.position = go.transform.parent.position;
+                    itemPic.image.transform.SetParent(go.transform.parent);
+                    gameObject.transform.GetChild(1).GetComponent<Text>().text = (int.Parse(gameObject.transform.GetChild(1).GetComponent<Text>().text) - 1).ToString();
+                    Destroy(go);
+                }
+            }
+            IsRaycastLocationValid(true);
+        }
+        else
+        {
+            Destroy(itemPic.image);
+        }
     }
 
     private void IsRaycastLocationValid(bool flag)

@@ -7,6 +7,7 @@ using UnityStandardAssets.ImageEffects;
 public class Player : MonoBehaviour {
 
     private Animator anim;
+    
     private int speedID = Animator.StringToHash("Speed");
     private int isSpeedUpID = Animator.StringToHash("IsSpeedUp");
     private int horizontalID = Animator.StringToHash("Horizontal");

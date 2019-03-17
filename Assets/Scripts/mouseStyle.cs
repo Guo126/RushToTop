@@ -8,7 +8,7 @@ public class mouseStyle :MonoBehaviour
 
     private void Start()
     {
-        
+        Invoke("startGame", 15f);
     }
 
     void Update()
@@ -23,7 +23,20 @@ public class mouseStyle :MonoBehaviour
 
     void startGame()
     {
+        image1.gameObject.SetActive(false);
+        image2.gameObject.SetActive(false);
+    }
+
+    private void OnApplicationQuit()
+    {
+        
+    }
+
+    public void Destroy()
+    {
+        Application.Quit();
 
     }
+
 }
 

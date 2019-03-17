@@ -12,6 +12,7 @@ public class Shoot : MonoBehaviour {
     Vector3 screenPosition;
     Vector3 mousePositionInWorld;
     private GameObject arrow;
+    [SerializeField]
     private float shootSpeed = 0.12f;
     private Player player;
     float dis = 0;

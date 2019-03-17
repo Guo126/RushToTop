@@ -47,7 +47,7 @@ public class GhostBehaviour : MonoBehaviour
     {
         if (preBlood <= 0&&!isdead)
         {
-            print(0);
+
             
             isdead = true;
             anim.SetBool(isDeadID, true);
@@ -55,12 +55,12 @@ public class GhostBehaviour : MonoBehaviour
             anim.SetBool(isRunID, false);
             anim.SetBool(isFightID, false);
 
-            //Invoke("dead", 4f);
+            Invoke("dead", 2f);
             return;
         }
         else if(!isdead)
         {
-            print(2);
+            
             if (preBlood != ghostBlood)
             {
                 OnBloodChanged.Invoke((float)ghostBlood / maxBlood);
@@ -145,7 +145,7 @@ public class GhostBehaviour : MonoBehaviour
             isInjured = true;
         }
     }
-
+ 
    void dead()
     {
         Destroy(gameObject.transform.parent.parent.gameObject);
