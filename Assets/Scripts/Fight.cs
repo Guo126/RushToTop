@@ -9,6 +9,7 @@ public class Fight : MonoBehaviour {
     Vector3 screenPosition;
     Vector3 mousePositionInWorld;
     GameObject enemys = null;
+    public List<AudioClip> ac;
     private bool hasTarget;
     float dis = 0;
     public float range = 1;
@@ -68,12 +69,8 @@ public class Fight : MonoBehaviour {
         Animator animator = transform.GetComponent<Animator>();
         if (dis <= range && hasTarget)
         {
-
             animator.SetBool("isAttacking", true);
             player.target = this.transform.position;
-
-
-
         }
         else if (dis > range)
         {
@@ -82,5 +79,9 @@ public class Fight : MonoBehaviour {
             animator.SetBool("isAttacking", false);
         }
     }
-
+     void FightTo()
+    {
+        enemys.gameObject.GetComponent<GhostBehaviour>().ghostBlood -= PlayerMes.getInstance().Attack;
+        MusicManager.Instance.PlayMusic(ac[Random.Range(0,2)]);
+    }
 }

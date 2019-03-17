@@ -10610,3 +10610,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   point: {x: 0, y: 0, z: 0}
   shootSpeed: 0.36
+  feel: {fileID: 106216, guid: 0944f4b9f4efb0542888c8a41b5983ae, type: 2}
+  clip: {fileID: 0}

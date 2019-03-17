@@ -7,7 +7,7 @@ public class Self : MonoBehaviour {
     // Use this for initialization
     public Vector3 point;
     public  float shootSpeed = 0;
-
+    public GameObject feel;
     private AudioSource audioSource;
     public AudioClip clip;
 
@@ -29,14 +29,12 @@ public class Self : MonoBehaviour {
     {
         if (other.tag == "enemy")
         {
-            // Invoke( "destroyArrow",0.4f);
+            
+            Instantiate(feel, gameObject.transform);
             Destroy(gameObject);
         }
     }
 
-    void destroyArrow()
-    {
-        Destroy(gameObject);
-    }
+    
 
 }

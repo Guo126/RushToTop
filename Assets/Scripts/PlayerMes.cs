@@ -4,22 +4,21 @@ using UnityEngine;
 
 public class PlayerMes : MonoBehaviour {
 
-
+    private string myName;
+    private string level;
     private int bloodNum;
     private int bloodMax;
     private int magicNum;
     private int magicMax;
     private int attack;
-
     private int defence;
-
     private int hidePer;
-
     private int bigHit;
 
 
-     public void Init(int bloodNum,int bMax, int magicNum, int mMax,int attack, int defence, int hidePer, int bigHit)
+    public void Init(string lv, int bloodNum,int bMax, int magicNum, int mMax,int attack, int defence, int hidePer, int bigHit)
     {
+        this.level = lv;
         this.bloodNum = bloodNum;
         this.bloodMax = bMax;
         this.magicNum = magicNum;
@@ -136,6 +135,33 @@ public class PlayerMes : MonoBehaviour {
         }
     }
 
+    public string MyName
+    {
+        get
+        {
+            return myName;
+        }
+
+        set
+        {
+            myName = value;
+        }
+    }
+
+
+    public string Level
+    {
+        get
+        {
+            return level;
+        }
+
+        set
+        {
+            level = value;
+        }
+    }
+
     static public PlayerMes getInstance()
     {
         return instance;
@@ -152,9 +178,6 @@ public class PlayerMes : MonoBehaviour {
 		
 	}
 
-    void init(int blood,int magic,int attack,int defence,int hidePer,int bigHit)
-    {
-        
-    }
+    
     
 }

@@ -15,6 +15,8 @@ public class changeMenu : MonoBehaviour {
    
     // Use this for initialization
     void Start () {
+        
+        
         if (PlayerPrefs.GetInt("isFirst") != 1)
         {
             menu.GetComponent<Image>().overrideSprite = menus[0];
@@ -37,8 +39,9 @@ public class changeMenu : MonoBehaviour {
             PlayerPrefs.SetInt("isFirst", 1);
             Invoke("wait", 1.5f);
             Invoke("wait2", 92f);
-           
-        }else if(index == 1)
+
+        }
+        else if(index == 1)
         {
             gameObject.SetActive(false);
             maneger.GetComponent<control>().play();

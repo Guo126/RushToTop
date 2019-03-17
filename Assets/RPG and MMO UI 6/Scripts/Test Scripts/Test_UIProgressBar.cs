@@ -62,7 +62,7 @@ namespace DuloGames.UI
 			if (this.bar == null)
 				return;
 
-            print(amount);
+
 			this.bar.fillAmount = amount;
 			
 			if (this.m_Text != null)

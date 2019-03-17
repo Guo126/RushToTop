@@ -19,6 +19,7 @@ public class Shoot : MonoBehaviour {
     private bool hasTarget = false;
     GameObject enemys = null;
     private float timer = 2;
+    public List<AudioClip> clips;
 
     // Use this for initialization
     void Start () {
@@ -41,6 +42,10 @@ public class Shoot : MonoBehaviour {
     {
         if (enemys == null) return;
         arrow = Instantiate(arrowPrefab, shootPoint.position, transform.rotation) as GameObject;
+        if (clips != null)
+        {
+            MusicManager.Instance.PlayMusic(clips[Random.Range(0, 1)]);
+        }
         Self se = arrow.gameObject.GetComponent<Self>();
         Weapon weapon = arrow.gameObject.GetComponent<Weapon>();
         weapon.damage = damage + (int)Random.Range(-damage * 0.1f, damage * 0.1f);
@@ -92,13 +97,10 @@ public class Shoot : MonoBehaviour {
         dis = (gameObject.transform.position - enemys.transform.position).magnitude;
         Animator animator = transform.GetComponent<Animator>();
         if (dis <= attackRange && hasTarget)
-        {
-            
+        {    
             animator.SetBool("isAttacking", true);
             player.target = this.transform.position;
-
-    
-            
+ 
         }
         else if (dis > attackRange)
         {

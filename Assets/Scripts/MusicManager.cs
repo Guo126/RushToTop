@@ -25,4 +25,11 @@ public class MusicManager : MonoBehaviour {
         audioSource.time = time;
         audioSource.Play();
     }
+    public void PlayMusic(AudioClip ac)
+    {
+        audioSource.clip = ac;
+        audioSource.pitch = Random.Range(0.9f, 1.1f);
+        audioSource.volume = Random.Range(0.9f, 1.2f);
+        audioSource.Play();
+    }
 }
