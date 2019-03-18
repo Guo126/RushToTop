@@ -17,7 +17,7 @@
       "addCrt": 0
     },
     {
-      "number": 7,
+      "number": 5,
       "name": "redMedition",
       "explain": "恢复10%血量",
       "type": "Medition",

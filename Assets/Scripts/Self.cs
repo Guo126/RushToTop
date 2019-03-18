@@ -30,7 +30,7 @@ public class Self : MonoBehaviour {
         if (other.tag == "enemy")
         {
             
-            Instantiate(feel, gameObject.transform);
+            //Instantiate(feel, gameObject.transform);
             Destroy(gameObject);
         }
     }

@@ -95,14 +95,17 @@ GameObject:
   m_Component:
   - component: {fileID: 4474455404494220}
   - component: {fileID: 95689624087323138}
-  - component: {fileID: 114400099207496960}
+  - component: {fileID: 54598773333353774}
+  - component: {fileID: 143910637550382572}
+  - component: {fileID: 114230311580607400}
+  - component: {fileID: 114030236462322130}
   m_Layer: 0
   m_Name: human_wizard_Rig
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1202387325313978
 GameObject:
   m_ObjectHideFlags: 1
@@ -619,9 +622,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1184556750302466}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 4212098989800732}
   - {fileID: 4958424830907854}
@@ -840,6 +843,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1859166757449514}
   m_Mesh: {fileID: 4300000, guid: 75de51070745a3441b59718f8c216eda, type: 3}
+--- !u!54 &54598773333353774
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1184556750302466}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!95 &95689624087323138
 Animator:
   serializedVersion: 3
@@ -849,7 +867,7 @@ Animator:
   m_GameObject: {fileID: 1184556750302466}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 387bcf7daba64ee4288af0a4ad266b63, type: 3}
-  m_Controller: {fileID: 9100000, guid: 88e0e1f796b6e884a8f1dabaf86ae31a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 17060fef621e2af4f87855fb5985dd56, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -857,7 +875,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114400099207496960
+--- !u!114 &114030236462322130
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -865,14 +883,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 1184556750302466}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c020728dc90752543ab3ef8fd6d22697, type: 3}
+  m_Script: {fileID: 11500000, guid: c121d10ac21640d41ae9be67056c4408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 125044, guid: ae6cf3671590f3741928b2570d0f0dba, type: 2}
+  target: {x: 0, y: 0, z: 0}
+  speed: 1
+  perfab: {fileID: 0}
+--- !u!114 &114230311580607400
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1184556750302466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 532643a6a31a4b5439bdf92b20f305ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 2
+  damage: 20
+  arrowPrefab: {fileID: 125044, guid: ae6cf3671590f3741928b2570d0f0dba, type: 2}
   shootPoint: {fileID: 4929623250534794}
-  attackLenght: 0.7
-  attackRange: 15
-  hitEffect: {fileID: 106216, guid: 0944f4b9f4efb0542888c8a41b5983ae, type: 2}
+  shootSpeed: 2
+  clips:
+  - {fileID: 8300000, guid: 21fb0f006574c59439378b33deda19b8, type: 3}
+  - {fileID: 8300000, guid: a298291107865d842b5dcf49cf4c32e2, type: 3}
 --- !u!137 &137690100004403432
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -939,3 +974,20 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0644497, y: 0.00018849224, z: -0.00000055134296}
     m_Extent: {x: 0.621649, y: 0.18199873, z: 0.34605604}
   m_DirtyAABB: 0
+--- !u!143 &143910637550382572
+CharacterController:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1184556750302466}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1, z: 0}

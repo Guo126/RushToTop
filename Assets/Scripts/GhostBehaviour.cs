@@ -38,13 +38,14 @@ public class GhostBehaviour : MonoBehaviour
         ghostBlood = maxBlood;
         g_transform = gameObject.transform.parent.transform.parent.GetComponent<Transform>();
         anim = gameObject.transform.parent.transform.parent.GetComponent<Animator>();
-        player = GameObject.FindGameObjectWithTag("Player");
+        
         ghost = new Ghost(ghostBlood, ghostAR, g_transform.position, ghostFR, ghostMS, false);
         OnBloodChanged.Invoke((float)ghostBlood / maxBlood);
     }
 
     void Update()
     {
+
         if (preBlood <= 0&&!isdead)
         {
 
@@ -69,6 +70,7 @@ public class GhostBehaviour : MonoBehaviour
 
             if (isInjured)      //受到伤害
             {
+                player = GameObject.FindGameObjectWithTag("Player");
                 ghost.IsFightStatus = true;
                 if (Vector3.Distance(player.transform.position, gameObject.transform.parent.transform.parent.transform.position) > ghost.FightRange && ghost.IsFightStatus)      //不在攻击范围
                 {

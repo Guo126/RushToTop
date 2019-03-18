@@ -42,9 +42,9 @@ public class Shoot : MonoBehaviour {
     {
         if (enemys == null) return;
         arrow = Instantiate(arrowPrefab, shootPoint.position, transform.rotation) as GameObject;
-        if (clips != null)
+        if (clips.Count!= 0)
         {
-            MusicManager.Instance.PlayMusic(clips[Random.Range(0, 1)]);
+            MusicManager.Instance.PlayMusic(clips[Random.Range(0, clips.Count)]);
         }
         Self se = arrow.gameObject.GetComponent<Self>();
         Weapon weapon = arrow.gameObject.GetComponent<Weapon>();
